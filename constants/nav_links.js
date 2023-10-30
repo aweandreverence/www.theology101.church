@@ -11,4 +11,8 @@ export const NAV_LINKS = [
         name: 'Awesome.Bible',
         url: 'https://awesome.bible',
     },
+    {
+        name: 'Awe And Reverence',
+        url: 'https://www.aweandreverence.com/',
+    },
 ];
