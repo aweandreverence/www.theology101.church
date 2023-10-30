@@ -13,8 +13,7 @@ export default class Topics extends React.Component {
         return (
             <div>
                 <h5 className="mt-4">Topics ({topics.length})</h5>
-                <br />
-                <ul className="mx-0 px-0">
+                <ul className="mx-0 px-0 mt-4">
                     {topics
                         .filter((topic) => lookupByTopic[topic])
                         .map((topic) => (

@@ -25,8 +25,7 @@ export default class VideoListing extends React.Component {
                 <h3>
                     {heading}: {title}
                 </h3>
-                <br />
-                <div className="d-flex p-2 flex-wrap">
+                <div className="d-flex p-2 flex-wrap mt-4">
                     {videoIds.map((videoId) => (
                         <VideoCard videoId={videoId} app={app} />
                     ))}

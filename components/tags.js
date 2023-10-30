@@ -15,8 +15,7 @@ export default class Tags extends React.Component {
         return (
             <div>
                 <h5>Tags ({tags.length})</h5>
-                <br />
-                <ul className="mx-0 px-0">
+                <ul className="mx-0 px-0 mt-4">
                     {tags.map((tag) => (
                         <ol className="p-0">
                             <a
