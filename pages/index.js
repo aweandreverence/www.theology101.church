@@ -4,6 +4,7 @@ import Tags from '../components/tags';
 import Topics from '../components/topics';
 import VideoListing from '../components/video_listing';
 import WelcomeScreen from '../components/welcome_screen';
+import VideoLesson from '../components/video_lesson';
 
 export default class Home extends React.Component {
     constructor(props) {
