@@ -16,10 +16,9 @@ export default class Topics extends React.Component {
                 <ul className="mx-0 px-0 mt-4">
                     {topics
                         .filter((topic) => lookupByTopic[topic])
-                        .map((topic) => (
-                            <ol className="p-0">
+                        .map((topic, index) => (
+                            <ol key={index} className="p-0">
                                 <a
-                                    href
                                     className="link-light"
                                     onClick={(e) => {
                                         e.preventDefault();

@@ -20,7 +20,7 @@ export default class VideoCardTags extends React.Component {
                                 app.selectTag.bind(app)(tag);
                             }}
                         >
-                            <span className="badge bg-secondary me-1">
+                            <span className="badge bg-secondary text-light mr-1">
                                 {tag}
                             </span>
                         </a>

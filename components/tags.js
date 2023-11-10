@@ -16,10 +16,9 @@ export default class Tags extends React.Component {
             <div>
                 <h5>Tags ({tags.length})</h5>
                 <ul className="mx-0 px-0 mt-4">
-                    {tags.map((tag) => (
-                        <ol className="p-0">
+                    {tags.map((tag, index) => (
+                        <ol key={index} className="p-0">
                             <a
-                                href
                                 className="link-light"
                                 onClick={(e) => {
                                     e.preventDefault();
