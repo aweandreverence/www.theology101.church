@@ -29,7 +29,7 @@ export default class VideoCard extends React.Component {
                 <div className="card-body bg-light overflow-y-scroll">
                     <h5 className="card-title">
                         <a
-                            href
+                            href="#"
                             onClick={(e) => {
                                 e.preventDefault();
                                 app.selectLesson.bind(app)(video.videoId);

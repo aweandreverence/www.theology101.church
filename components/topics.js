@@ -19,6 +19,7 @@ export default class Topics extends React.Component {
                         .map((topic, index) => (
                             <ol key={index} className="p-0">
                                 <a
+                                    href="#"
                                     className="link-light"
                                     onClick={(e) => {
                                         e.preventDefault();

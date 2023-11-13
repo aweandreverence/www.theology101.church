@@ -11,10 +11,10 @@ export default class VideoCardTags extends React.Component {
         const video = this.props.video;
         return (
             <div className="d-flex flex-wrap">
-                {video.tags.map((tag) => (
-                    <h6>
+                {video.tags.map((tag, index) => (
+                    <h6 key={index}>
                         <a
-                            href
+                            href="#"
                             onClick={(e) => {
                                 e.preventDefault();
                                 app.selectTag.bind(app)(tag);
