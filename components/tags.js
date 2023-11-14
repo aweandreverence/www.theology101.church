@@ -19,6 +19,7 @@ export default class Tags extends React.Component {
                     {tags.map((tag, index) => (
                         <ol key={index} className="p-0">
                             <a
+                                href="#"
                                 className="link-light"
                                 onClick={(e) => {
                                     e.preventDefault();
