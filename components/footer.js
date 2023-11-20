@@ -12,6 +12,9 @@ import css from '../styles/footer.module.scss';
 library.add(fab, faFacebookF, faTwitter);
 
 export function Footer({ children }) {
+    const CURRENT_YEAR = new Date().getFullYear();
+    const YEAR_CREATED = "2020"
+
     return (
         <>
             <footer className={css.footer}>
@@ -40,7 +43,7 @@ export function Footer({ children }) {
                     </div>
                 </div>
                 <div className={css.copyright}>
-                    <p>&copy; Awe and Reverence 2020</p>
+                    <p>&copy; Awe and Reverence {YEAR_CREATED} - {CURRENT_YEAR}</p>
                 </div>
             </footer>
         </>
