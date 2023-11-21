@@ -13,7 +13,7 @@ library.add(fab, faFacebookF, faTwitter);
 
 export function Footer({ children }) {
     const CURRENT_YEAR = new Date().getFullYear();
-    const YEAR_CREATED = "2020"
+    const YEAR_CREATED = "2023np"
 
     return (
         <>
