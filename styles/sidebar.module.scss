@@ -1,0 +1,15 @@
+.sidebar {
+    ul {
+        height: 500px;
+        overflow-y: scroll;
+
+        a {
+            .iframe {
+                width: 100px;
+                height: 60px;
+                border-radius: 5px;
+                flex-shrink: 0;
+            }
+        }
+    }
+}
