@@ -13,7 +13,7 @@ library.add(fab, faFacebookF, faTwitter);
 
 export function Footer({ children }) {
     const CURRENT_YEAR = new Date().getFullYear();
-    const YEAR_CREATED = "2023np"
+    const YEAR_CREATED = '2023';
 
     return (
         <>
@@ -43,7 +43,10 @@ export function Footer({ children }) {
                     </div>
                 </div>
                 <div className={css.copyright}>
-                    <p>&copy; Awe and Reverence {YEAR_CREATED} - {CURRENT_YEAR}</p>
+                    <p>
+                        &copy; Awe and Reverence {YEAR_CREATED} {' '}
+                        {YEAR_CREATED != CURRENT_YEAR ? - CURRENT_YEAR : ''}
+                    </p>
                 </div>
             </footer>
         </>
