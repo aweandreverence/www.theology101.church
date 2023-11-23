@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import css from '../styles/footer.module.scss';
+import { CURRENT_YEAR, YEAR_CREATED } from '../constants/date';
 
 library.add(fab, faFacebookF, faTwitter);
 
@@ -40,7 +41,10 @@ export function Footer({ children }) {
                     </div>
                 </div>
                 <div className={css.copyright}>
-                    <p>&copy; Awe and Reverence 2020</p>
+                    <p>
+                    &copy; Awe and Reverence {YEAR_CREATED}
+                        {YEAR_CREATED != CURRENT_YEAR ? ` - ${CURRENT_YEAR}` : ''}
+                    </p>
                 </div>
             </footer>
         </>
