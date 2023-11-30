@@ -1,8 +1,8 @@
 import React from 'react';
 import THEOLOGY101_DATA from '@data/theology101.json';
-import VideoCard from '@components/video_card';
+import { VideoCard } from '@components/video_card';
 
-export default class VideoListing extends React.Component {
+export class VideoListing extends React.Component {
     constructor(props) {
         super(props);
     }

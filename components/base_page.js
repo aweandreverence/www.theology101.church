@@ -12,7 +12,7 @@ import { PAGE_TITLES, SITE_TITLE } from '@constants/seo.js';
 
 import css from '@styles/common.module.scss';
 
-export default function Page({ children }) {
+export function Page({ children }) {
     const router = useRouter();
     const path = router.pathname;
     return (
