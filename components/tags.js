@@ -1,5 +1,5 @@
 import React from 'react';
-import THEOLOGY101_DATA from '../data/theology101.json';
+import THEOLOGY101_DATA from '@data/theology101.json';
 
 const BASE_URL = '/prototypes/theology101';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import THEOLOGY101_DATA from '../data/theology101.json';
+import THEOLOGY101_DATA from '@data/theology101.json';
 
 export default class Topics extends React.Component {
     constructor(props) {

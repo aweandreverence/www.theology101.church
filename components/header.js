@@ -4,8 +4,8 @@ import Nav from 'react-bootstrap/Nav';
 
 import { useRouter } from 'next/router';
 
-import { NAV_LINKS } from '../constants/nav_links.js';
-import css from '../styles/header.module.scss';
+import { NAV_LINKS } from '@constants/nav_links.js';
+import css from '@styles/header.module.scss';
 
 export function Header({ children }) {
     const router = useRouter();

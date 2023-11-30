@@ -1,11 +1,11 @@
 import React from 'react';
-import Page from '../components/base_page';
-import Tags from '../components/tags';
-import Topics from '../components/topics';
-import VideoListing from '../components/video_listing';
-import WelcomeScreen from '../components/welcome_screen';
-import VideoLesson from '../components/video_lesson';
-import css from '../styles/common.module.scss';
+import Page from '@components/base_page';
+import Tags from '@components/tags';
+import Topics from '@components/topics';
+import VideoListing from '@components/video_listing';
+import WelcomeScreen from '@components/welcome_screen';
+import VideoLesson from '@components/video_lesson';
+import css from '@styles/common.module.scss';
 
 export default class Home extends React.Component {
     constructor(props) {
