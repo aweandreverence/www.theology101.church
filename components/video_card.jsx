@@ -24,10 +24,12 @@ export function VideoCard({ videoId }) {
                     </a>
                 </Link>
             </div>
-            <div className="card-body bg-light overflow-y-scroll">
+            <div className="card-body bg-light">
                 <h5 className="card-title">
                     <Link href={`/videos/${videoId}`}>
-                        {video.lessonName || video.title}
+                        <a className="link-dark">
+                            {video.lessonName || video.title}
+                        </a>
                     </Link>
                 </h5>
                 <p className="card-text">{video.description}</p>
