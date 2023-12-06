@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BaseLayout } from '@components/layouts/base';
+import { BaseLayout } from '@components/base_layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@styles/globals.scss';
 
