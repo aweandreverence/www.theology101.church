@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import { NAV_LINKS } from '@constants/nav_links.js';
 import css from '@styles/header.module.scss';
 
-export function Header({ children }) {
+export function Header() {
     const router = useRouter();
     const navItemsJSX = NAV_LINKS.map((link, index) => {
         const classes = classNames({
