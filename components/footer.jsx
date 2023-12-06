@@ -15,36 +15,34 @@ library.add(fab, faFacebookF, faTwitter);
 
 export function Footer() {
     return (
-        <footer className={css.footer}>
-            <div className={css.socialmedia}>
-                <div className={css.facebook}>
+        <footer className="border-top py-5 mt-3">
+            <div className="container d-flex align-items-center justify-content-between">
+                <div>
+                    &copy; Awe and Reverence {YEAR_CREATED}
+                    {YEAR_CREATED != CURRENT_YEAR ? ` - ${CURRENT_YEAR}` : ''}
+                </div>
+                <div className="d-flex">
                     <a
                         href="https://www.facebook.com/AweAndReverence"
                         title="Awe & Reverence on Facebook"
                         target="_blank"
+                        className="link-light"
                     >
-                        <div className={css.icon}>
+                        <div className={css.facebook}>
                             <FontAwesomeIcon icon={['fab', 'facebook-f']} />
                         </div>
                     </a>
-                </div>
-                <div className={css.twitter}>
                     <a
                         href="https://twitter.com/aweandreverence"
                         title="Awe & Reverence on Twitter"
                         target="_blank"
+                        className="link-light"
                     >
-                        <div className={css.icon}>
+                        <div className={css.twitter}>
                             <FontAwesomeIcon icon={['fab', 'twitter']} />
                         </div>
                     </a>
                 </div>
-            </div>
-            <div className={css.copyright}>
-                <p>
-                    &copy; Awe and Reverence {YEAR_CREATED}
-                    {YEAR_CREATED != CURRENT_YEAR ? ` - ${CURRENT_YEAR}` : ''}
-                </p>
             </div>
         </footer>
     );
