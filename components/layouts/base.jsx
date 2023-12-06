@@ -10,10 +10,9 @@ import { Header } from '@components/header';
 import { CommonJS } from '@components/js/common';
 import { NonBlockingJS } from '@components/js/nonblocking';
 
-import { PAGE_TITLES, SITE_TITLE } from '@constants/seo.js';
+import { PAGE_TITLES, SITE_TITLE, SLUGS_BY_NAME } from '@constants/seo.js';
 import THEOLOGY101_DATA from '@data/theology101.json';
 
-import css from '@styles/common.module.scss';
 import Link from 'next/link';
 
 function SidebarList({ title, entries, url }) {
@@ -23,7 +22,7 @@ function SidebarList({ title, entries, url }) {
             <ul className="list-unstyled">
                 {entries.map(({ name, count }) => (
                     <li key={name}>
-                        <Link href={`/${url}/${name}`}>
+                        <Link href={`/${url}/${SLUGS_BY_NAME[url][name]}`}>
                             {`${name} (${count})`}
                         </Link>
                     </li>
@@ -35,7 +34,7 @@ function SidebarList({ title, entries, url }) {
 
 function buildList(key, lookup) {
     return THEOLOGY101_DATA[key]
-        .filter((entry) => THEOLOGY101_DATA.lookups[lookup][entry])
+        .filter((entry) => entry in THEOLOGY101_DATA.lookups[lookup])
         .map((entry) => ({
             name: entry,
             count: THEOLOGY101_DATA.lookups[lookup][entry].length,
