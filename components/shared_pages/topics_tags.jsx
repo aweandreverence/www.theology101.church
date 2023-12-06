@@ -5,6 +5,8 @@ import { NAMES_BY_SLUG } from '@constants/seo';
 import THEOLOGY101_DATA from '@data/theology101.json';
 import { VideoCard } from '@components/video_card';
 import Custom404 from '@pages/404';
+import Head from 'next/head';
+import { buildTitle } from '@utils/seo';
 
 export function TopicsTagsPage({ title, type, lookup }) {
     const {
@@ -20,6 +22,9 @@ export function TopicsTagsPage({ title, type, lookup }) {
 
     return (
         <>
+            <Head>
+                <title>{buildTitle(`${entry} - ${title}`)}</title>
+            </Head>
             <h3 className="my-5">
                 {title}: {entry}
             </h3>

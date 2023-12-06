@@ -1,9 +1,11 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import Custom404 from '@pages/404';
+import { VideoTags } from '@components/video_tags';
+import { buildTitle } from '@utils/seo';
 
 import THEOLOGY101_DATA from '@data/theology101.json';
-import { VideoTags } from '@components/video_tags';
 
 export default function Page() {
     const {
@@ -17,14 +19,19 @@ export default function Page() {
 
     return (
         <>
+            <Head>
+                <title>
+                    {buildTitle(`${video.lessonName || video.title}`)}
+                </title>
+            </Head>
             <h3 className="my-5">{video.lessonName || video.title}</h3>
             <div className="ratio ratio-16x9">
                 <iframe
                     src={`https://www.youtube.com/embed/${video.videoId}`}
                     title={video.title}
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
+                    allowFullScreen
                 ></iframe>
             </div>
             <div className="my-3">

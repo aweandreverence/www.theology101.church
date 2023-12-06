@@ -1,11 +1,9 @@
 import THEOLOGY101_DATA from '@data/theology101.json';
 import { toSlug } from '@utils/seo';
 
-export const SITE_TITLE = 'theology101.church';
+export const GOOGLE_ANALYTICS_TRACKING_ID = 'UA-8680690-4';
 
-export const PAGE_TITLES = {
-    '/': 'Home',
-};
+export const SITE_TITLE = 'theology101.church';
 
 export const SLUGS_BY_NAME = {
     topics: THEOLOGY101_DATA.topics.reduce(
