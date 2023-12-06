@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { NAV_LINKS } from '@constants/nav_links';
 import { SITE_TITLE } from '@constants/seo';
 
+// TODO: Improve the styling on this component
 export function Header() {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
