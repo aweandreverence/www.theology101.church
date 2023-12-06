@@ -26,7 +26,9 @@ function SidebarList({ title, entries, url }) {
                 {entries.map(({ name, count }) => (
                     <li key={name}>
                         <Link href={`/${url}/${SLUGS_BY_NAME[url][name]}`}>
-                            {`${name} (${count})`}
+                            <a className="link-light">
+                                {name} ({count})
+                            </a>
                         </Link>
                     </li>
                 ))}
