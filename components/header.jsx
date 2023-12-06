@@ -1,30 +1,41 @@
-import classNames from 'classnames';
+import Link from 'next/link';
 
-import Nav from 'react-bootstrap/Nav';
-
-import { useRouter } from 'next/router';
-
-import { NAV_LINKS } from '@constants/nav_links.js';
-import css from '@styles/header.module.scss';
+import { NAV_LINKS } from '@constants/nav_links';
+import { SITE_TITLE } from '@constants/seo';
 
 export function Header() {
-    const router = useRouter();
-    const navItemsJSX = NAV_LINKS.map((link, index) => {
-        const classes = classNames({
-            [css.active]: link.url === router.pathname,
-        });
-        const target = link.url.substring(0, 4) === 'http' ? '_blank' : null;
-        return (
-            <Nav.Item key={`link-${index}`}>
-                <Nav.Link href={link.url} className={classes} target={target}>
-                    {link.name}
-                </Nav.Link>
-            </Nav.Item>
-        );
-    });
     return (
-        <div className={css.header}>
-            <Nav>{navItemsJSX}</Nav>
-        </div>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <div className="container">
+                <Link href="/">
+                    <a class="navbar-brand">{SITE_TITLE}</a>
+                </Link>
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    className="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        {NAV_LINKS.map((entry) => (
+                            <li className="nav-item">
+                                <a class="nav-link" href={entry.url}>
+                                    {entry.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </nav>
     );
 }
