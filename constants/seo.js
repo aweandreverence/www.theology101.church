@@ -3,7 +3,7 @@ import { toSlug } from '@utils/seo';
 
 export const GOOGLE_ANALYTICS_TRACKING_ID = 'UA-8680690-4';
 
-export const SITE_TITLE = 'theology101.church';
+export const SITE_TITLE = 'Theology101.church';
 
 export const SLUGS_BY_NAME = {
     topics: THEOLOGY101_DATA.topics.reduce(
