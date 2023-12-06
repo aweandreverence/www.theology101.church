@@ -7,8 +7,9 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import css from '../styles/footer.module.scss';
-import { CURRENT_YEAR, YEAR_CREATED } from '../constants/date';
+
+import css from '@styles/footer.module.scss';
+import { CURRENT_YEAR, YEAR_CREATED } from '@constants/date';
 
 library.add(fab, faFacebookF, faTwitter);
 

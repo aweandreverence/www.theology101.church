@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class VideoCardTags extends React.Component {
+export class VideoCardTags extends React.Component {
     constructor(props) {
         super(props);
     }

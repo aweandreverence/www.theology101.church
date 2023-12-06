@@ -1,9 +1,9 @@
 import React from 'react';
-import THEOLOGY101_DATA from '../data/theology101.json';
-import THEOLOGY101_OEMBED from '../data/theology101_oembed.json';
-import VideoCardTags from '../components/video_card_tags';
+import THEOLOGY101_DATA from '@data/theology101.json';
+import THEOLOGY101_OEMBED from '@data/theology101_oembed.json';
+import { VideoCardTags } from '@components/video_card_tags';
 
-export default class VideoLesson extends React.Component {
+export class VideoLesson extends React.Component {
     constructor(props) {
         super(props);
     }

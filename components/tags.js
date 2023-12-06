@@ -1,9 +1,9 @@
 import React from 'react';
-import THEOLOGY101_DATA from '../data/theology101.json';
+import THEOLOGY101_DATA from '@data/theology101.json';
 
 const BASE_URL = '/prototypes/theology101';
 
-export default class Tags extends React.Component {
+export class Tags extends React.Component {
     constructor(props) {
         super(props);
     }
