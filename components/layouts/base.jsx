@@ -1,19 +1,22 @@
 import React from 'react';
 
 import Head from 'next/head';
+import Link from 'next/link';
+import Script from 'next/script';
 import { useRouter } from 'next/router';
+
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
-import { CommonCSS } from '@components/css/common';
 import { Footer } from '@components/footer';
 import { Header } from '@components/header';
-import { CommonJS } from '@components/js/common';
-import { NonBlockingJS } from '@components/js/nonblocking';
 
-import { PAGE_TITLES, SITE_TITLE, SLUGS_BY_NAME } from '@constants/seo.js';
+import {
+    GOOGLE_ANALYTICS_TRACKING_ID,
+    SITE_TITLE,
+    SLUGS_BY_NAME,
+} from '@constants/seo.js';
+
 import THEOLOGY101_DATA from '@data/theology101.json';
-
-import Link from 'next/link';
 
 function SidebarList({ title, entries, url }) {
     return (
@@ -52,16 +55,13 @@ export function BaseLayout({ children }) {
     return (
         <>
             <Head>
-                <title>
-                    {path in PAGE_TITLES && `${PAGE_TITLES[path]} | `}
-                    {SITE_TITLE}
-                </title>
-
                 <meta charSet="utf-8" />
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1, shrink-to-fit=no"
                 />
+
+                <title>{SITE_TITLE}</title>
 
                 <link
                     href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -71,8 +71,18 @@ export function BaseLayout({ children }) {
 
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <CommonCSS />
-            <CommonJS />
+            <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_TRACKING_ID}`}
+            />
+            <Script id="google-analytics">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', '${GOOGLE_ANALYTICS_TRACKING_ID}');
+                `}
+            </Script>
             <div className="vh-100 d-flex flex-column">
                 <Header />
                 <main className="flex-grow-1">
@@ -104,7 +114,6 @@ export function BaseLayout({ children }) {
                 </main>
                 <Footer />
             </div>
-            <NonBlockingJS />
         </>
     );
 }
