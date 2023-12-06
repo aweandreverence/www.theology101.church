@@ -20,12 +20,14 @@ export function TopicsTagsPage({ title, type, lookup }) {
 
     return (
         <>
-            <h3>
+            <h3 className="my-5">
                 {title}: {entry}
             </h3>
-            <div className="d-flex p-2 flex-wrap mt-4">
+            <div className="row">
                 {videoIds.map((videoId) => (
-                    <VideoCard key={videoId} videoId={videoId} />
+                    <div className="col-lg-4 mb-5" key={videoId}>
+                        <VideoCard videoId={videoId} />
+                    </div>
                 ))}
             </div>
         </>
