@@ -1,7 +1,8 @@
 import React from 'react';
+
 import css from '@styles/common.module.scss';
 
-export function Welcome() {
+export default function Home() {
     return (
         <div className={css.welcome}>
             <h3>Welcome to Theology 101!</h3>
