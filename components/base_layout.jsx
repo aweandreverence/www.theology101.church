@@ -9,6 +9,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import { Footer } from '@components/footer';
 import { Header } from '@components/header';
+import styles from 'styles/common.module.scss';
 
 import {
     GOOGLE_ANALYTICS_TRACKING_ID,
@@ -18,16 +19,66 @@ import {
 
 import THEOLOGY101_DATA from '@data/theology101.json';
 
+function getFirstVideoIdForTags(tag) {
+    const videoForTag = Object.values(THEOLOGY101_DATA.lookups.video_id).find(
+        (video) => video.tags && video.tags.includes(tag)
+    );
+    return videoForTag ? videoForTag.videoId : null;
+}
+
+function getFirstVideoIdForTopics(topic) {
+    const videoForTopic = Object.values(THEOLOGY101_DATA.lookups.video_id).find(
+        (video) => video.topic === topic
+    );
+    return videoForTopic ? videoForTopic.videoId : null;
+}
+
+function buildThumbnail(title, setThumbnailUrls) {
+    const fetchThumbnails = async () => {
+        const thumbnailForSidebar = THEOLOGY101_DATA.lookups.video_id;
+        const data =
+            title == 'Topics'
+                ? THEOLOGY101_DATA.lookups.topic
+                : THEOLOGY101_DATA.lookups.tag;
+
+        Object.keys(data).forEach(async (key) => {
+            const videoId =
+                title === 'Topics'
+                    ? getFirstVideoIdForTopics(key)
+                    : getFirstVideoIdForTags(key);
+
+            if (videoId) {
+                setThumbnailUrls((prevUrls) => ({
+                    ...prevUrls,
+                    [key]: thumbnailForSidebar[videoId].thumbnail,
+                }));
+            }
+        });
+    };
+    fetchThumbnails();
+}
+
 function SidebarList({ title, entries, url }) {
+    const [thumbnailUrls, setThumbnailUrls] = React.useState({});
+    React.useEffect(() => {
+        buildThumbnail(title, setThumbnailUrls);
+    }, [title]);
+
     return (
         <div>
             <h5 className="mt-4">{title}</h5>
             <ul className="list-unstyled">
                 {entries.map(({ name, count }) => (
-                    <li key={name}>
+                    <li key={name} className={styles.list}>
                         <Link href={`/${url}/${SLUGS_BY_NAME[url][name]}`}>
-                            <a className="link-light">
-                                {name} ({count})
+                            <a className="link-secondary text-decoration-none d-flex align-items-center flex-shrink-0">
+                                <img
+                                    className="w-25"
+                                    src={thumbnailUrls[name]}
+                                />
+                                <span className="ms-2 d-flex flex-direction-column">
+                                    <p>{name}</p> <p>({count})</p>
+                                </span>
                             </a>
                         </Link>
                     </li>
@@ -92,7 +143,7 @@ export function BaseLayout({ children }) {
                         <div className="row">
                             <div className="col-lg-9 col-md-8">{children}</div>
                             <div className="col-lg-3 col-md-4">
-                                <div className="bg-secondary text-light w-100 p-3">
+                                <div className="bg-light text-dark w-100 p-3">
                                     <SidebarList
                                         title="Topics"
                                         url="topics"
