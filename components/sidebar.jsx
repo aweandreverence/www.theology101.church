@@ -63,8 +63,16 @@ export function SidebarList({ title, entries, url }) {
                                     className="w-25"
                                     src={thumbnailUrls[name]}
                                 />
-                                <span className="ms-2 d-flex flex-direction-column">
-                                    <p>{name}</p> <p>({count})</p>
+                                <span className="ms-2 w-75 d-flex position-relative">
+                                    <p
+                                        className="text-truncate w-75"
+                                        title={name}
+                                    >
+                                        {name}
+                                    </p>
+                                    <p className="ms-2 position-absolute end-0">
+                                        ({count})
+                                    </p>
                                 </span>
                             </a>
                         </Link>
