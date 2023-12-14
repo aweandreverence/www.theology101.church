@@ -1,5 +1,10 @@
+import { staticPathFactory, categoryStaticPropsFactory } from '@utils/static';
 import { TopicsTagsPage } from '@components/topics_tags';
 
-export default function Page() {
-    return <TopicsTagsPage title="Topic" type="topics" lookup="topic" />;
+export const getStaticPaths = staticPathFactory('topics');
+
+export const getStaticProps = categoryStaticPropsFactory('topics');
+
+export default function Page({ entry, videoIds }) {
+    return <TopicsTagsPage title="Topic" entry={entry} videoIds={videoIds} />;
 }
