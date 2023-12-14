@@ -11,14 +11,14 @@ export function staticPathFactory(key) {
     });
 }
 
-export function categoryStaticPropsFactory(category) {
+export function categoryStaticPropsFactory(category, lookup) {
     return async ({ params: { slug } }) => {
         const entry = NAMES_BY_SLUG[category][slug];
 
         return entry ? {
             props: {
                 entry,
-                videoIds: THEOLOGY101_DATA.lookups[category][entry] || [],
+                videoIds: THEOLOGY101_DATA.lookups[lookup][entry] || [],
             },
         } : { notFound: true };
     };
