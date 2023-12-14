@@ -4,15 +4,15 @@ help:
 
 ## install - install dependency packages
 install:
-	yarn install
+	npm install
 
 ## dev - starts the Next.js development server on port 3000
 dev: install
-	yarn run dev
+	npm run dev
 
 ## run - run the Next.js app server
 run: install
-	yarn run build && yarn run start
+	npm run build && npm run start
 
 ## clean - clean previous builds
 clean:
@@ -20,7 +20,7 @@ clean:
 
 ## build - build the app for release
 build: clean install
-	yarn build
+	npm run build
 	cp CNAME out/
 	touch out/.nojekyll
 
