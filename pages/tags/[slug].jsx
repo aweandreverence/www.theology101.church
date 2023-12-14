@@ -3,7 +3,7 @@ import { TopicsTagsPage } from '@components/topics_tags';
 
 export const getStaticPaths = staticPathFactory('tags');
 
-export const getStaticProps = categoryStaticPropsFactory('tags');
+export const getStaticProps = categoryStaticPropsFactory('tags', 'tag');
 
 export default function Page({ entry, videoIds }) {
     return <TopicsTagsPage title="Tag" entry={entry} videoIds={videoIds} />;
