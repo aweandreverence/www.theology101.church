@@ -18,7 +18,7 @@ export function categoryStaticPropsFactory(category) {
         return entry ? {
             props: {
                 entry,
-                videoIds: THEOLOGY101_DATA.lookups.tag[entry] || [],
+                videoIds: THEOLOGY101_DATA.lookups[category][entry] || [],
             },
         } : { notFound: true };
     };
