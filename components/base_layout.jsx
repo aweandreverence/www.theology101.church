@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Head from 'next/head';
-import Link from 'next/link';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 
@@ -10,32 +9,10 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Footer } from '@components/footer';
 import { Header } from '@components/header';
 
-import {
-    GOOGLE_ANALYTICS_TRACKING_ID,
-    SITE_TITLE,
-    SLUGS_BY_NAME,
-} from '@constants/seo.js';
+import { GOOGLE_ANALYTICS_TRACKING_ID, SITE_TITLE } from '@constants/seo.js';
+import { SidebarList } from '@components/sidebar';
 
 import THEOLOGY101_DATA from '@data/theology101.json';
-
-function SidebarList({ title, entries, url }) {
-    return (
-        <div>
-            <h5 className="mt-4">{title}</h5>
-            <ul className="list-unstyled">
-                {entries.map(({ name, count }) => (
-                    <li key={name}>
-                        <Link href={`/${url}/${SLUGS_BY_NAME[url][name]}`}>
-                            <a className="link-light">
-                                {name} ({count})
-                            </a>
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-}
 
 function buildList(key, lookup) {
     return THEOLOGY101_DATA[key]
@@ -92,7 +69,7 @@ export function BaseLayout({ children }) {
                         <div className="row">
                             <div className="col-lg-9 col-md-8">{children}</div>
                             <div className="col-lg-3 col-md-4">
-                                <div className="bg-secondary text-light w-100 p-3">
+                                <div className="bg-light text-dark w-100 p-3">
                                     <SidebarList
                                         title="Topics"
                                         url="topics"

@@ -1,0 +1,14 @@
+.sidebar {
+    ul {
+        overflow-y: scroll;
+
+        a {
+            img {
+                width: 100px;
+                height: 60px;
+                border-radius: 5px;
+                flex-shrink: 0;
+            }
+        }
+    }
+}
