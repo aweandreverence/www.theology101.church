@@ -76,9 +76,9 @@
 
     h1 {
         font-size: 80px;
-        font-family: cursive;
         z-index: 2; /* Ensure the text is positioned above the overlay */
         color: #fff; /* Set the text color */
+        font-family: 'Inter', sans-serif;
     }
 }
 

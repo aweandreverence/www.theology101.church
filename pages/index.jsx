@@ -4,6 +4,7 @@ import css from '@styles/common.module.scss';
 import { Header } from '@components/header';
 import THEOLOGY101_DATA from '@data/theology101.json';
 import { VideoCard } from '@components/video_card';
+import Head from 'next/head';
 
 export default function Home() {
     function buildList(key, lookup) {
@@ -19,6 +20,18 @@ export default function Home() {
 
     return (
         <>
+            <Head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossorigin
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500&family=Shadows+Into+Light&display=swap"
+                    rel="stylesheet"
+                />
+            </Head>
             <Header />
             <div className={css.hero}>
                 <h1>Theology101.church</h1>
