@@ -2,7 +2,6 @@ import React from 'react';
 
 import Head from 'next/head';
 import Script from 'next/script';
-import { useRouter } from 'next/router';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
@@ -23,10 +22,7 @@ function buildList(key, lookup) {
         }));
 }
 
-export function BaseLayout({ children }) {
-    const router = useRouter();
-    const path = router.pathname;
-
+export function BaseLayout({ hideSidebar, children }) {
     const topics = React.useMemo(() => buildList('topics', 'topic'), []);
 
     const tags = React.useMemo(() => buildList('tags', 'tag'), []);
@@ -49,6 +45,16 @@ export function BaseLayout({ children }) {
                 />
 
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossorigin
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500&family=Shadows+Into+Light&display=swap"
+                    rel="stylesheet"
+                />
             </Head>
             <Script
                 src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_TRACKING_ID}`}
@@ -67,27 +73,38 @@ export function BaseLayout({ children }) {
                 <main className="flex-grow-1">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-9 col-md-8">{children}</div>
-                            <div className="col-lg-3 col-md-4">
-                                <div className="bg-light text-dark w-100 p-3">
-                                    <SidebarList
-                                        title="Topics"
-                                        url="topics"
-                                        entries={topics}
-                                    />
-                                    <SidebarList
-                                        title="Tags"
-                                        url="tags"
-                                        entries={tags}
-                                    />
-                                </div>
-                                <a
-                                    href="https://theology101ak.thinkific.com/courses/howtostudythebible?ref=6431a0"
-                                    target="_blank"
-                                >
-                                    <img className="img-fluid" src="/ad.png" />
-                                </a>
+                            <div
+                                className={
+                                    hideSidebar ? 'col-12' : 'col-lg-9 col-md-8'
+                                }
+                            >
+                                {children}
                             </div>
+                            {!hideSidebar && (
+                                <div className="col-lg-3 col-md-4">
+                                    <div className="bg-light text-dark w-100 p-3">
+                                        <SidebarList
+                                            title="Topics"
+                                            url="topics"
+                                            entries={topics}
+                                        />
+                                        <SidebarList
+                                            title="Tags"
+                                            url="tags"
+                                            entries={tags}
+                                        />
+                                    </div>
+                                    <a
+                                        href="https://theology101ak.thinkific.com/courses/howtostudythebible?ref=6431a0"
+                                        target="_blank"
+                                    >
+                                        <img
+                                            className="img-fluid"
+                                            src="/ad.png"
+                                        />
+                                    </a>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </main>

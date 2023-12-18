@@ -1,15 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import css from '@styles/common.module.scss';
 
 import { VideoTags } from './video_tags';
 
 import THEOLOGY101_DATA from '@data/theology101.json';
+import { useIsHomePage } from '@utils/hooks';
 
 export function VideoCard({ videoId }) {
-    const router = useRouter();
-    const isHomePage = router.pathname === '/';
+    const isHomePage = useIsHomePage();
 
     const video = THEOLOGY101_DATA.lookups.video_id[videoId];
     if (!video) {
