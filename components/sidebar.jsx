@@ -56,7 +56,7 @@ export function SidebarList({ title, entries, url }) {
             <h5 className="mt-4">{title}</h5>
             <ul className="list-unstyled">
                 {entries.map(({ name, count }) => (
-                    <li key={name} className={styles.list}>
+                    <li key={name} className={styles.sidebarList}>
                         <Link href={`/${url}/${SLUGS_BY_NAME[url][name]}`}>
                             <a className="link-secondary text-decoration-none d-flex align-items-center flex-shrink-0">
                                 <img

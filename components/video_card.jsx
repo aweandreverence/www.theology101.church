@@ -1,18 +1,24 @@
 import React from 'react';
 import Link from 'next/link';
+import css from '@styles/common.module.scss';
 
 import { VideoTags } from './video_tags';
 
 import THEOLOGY101_DATA from '@data/theology101.json';
+import { useIsHomePage } from '@utils/hooks';
 
 export function VideoCard({ videoId }) {
+    const isHomePage = useIsHomePage();
+
     const video = THEOLOGY101_DATA.lookups.video_id[videoId];
     if (!video) {
         throw new Error(`Missing video for ${videoId}`);
     }
 
+    const layout = isHomePage ? css.list : 'card';
+
     return (
-        <div className="card">
+        <div className={layout}>
             <div>
                 <Link href={`/videos/${videoId}`}>
                     <a>
