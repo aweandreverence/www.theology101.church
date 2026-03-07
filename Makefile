@@ -1,33 +1,28 @@
-## help - Display help about make targets for this Makefile
-help:
-	@cat Makefile | grep '^## ' --color=never | cut -c4- | sed -e "`printf 's/ - /\t- /;'`" | column -s "`printf '\t'`" -t
+.PHONY: help install dev build clean lint typecheck
 
-## install - install dependency packages
+help:
+	@echo "Available commands:"
+	@echo "  make install    - Install dependencies"
+	@echo "  make dev        - Run development server"
+	@echo "  make build      - Build for production (static export)"
+	@echo "  make clean      - Remove build artifacts"
+	@echo "  make lint       - Run ESLint"
+	@echo "  make typecheck  - Run TypeScript type checking"
+
 install:
 	npm install
 
-## dev - starts the Next.js development server on port 3000
-dev: install
+dev:
 	npm run dev
 
-## run - run the Next.js app server
-run: install
-	npm run build && npm run start
-
-## clean - clean previous builds
-clean:
-	rm -rf out/*
-
-## build - build the app for release
-build: clean install
+build:
 	npm run build
-	cp CNAME out/
-	touch out/.nojekyll
 
-## deploy - build and deploy the app
-deploy: clean build
-	rm -rf docs/
-	mv out docs
-	git add docs
-	git commit -m "Deploy `git rev-parse --verify HEAD`"
-	git push origin master
+clean:
+	rm -rf .next out node_modules
+
+lint:
+	npm run lint
+
+typecheck:
+	npm run typecheck

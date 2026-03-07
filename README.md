@@ -1,17 +1,60 @@
 # www.theology101.church
-https://www.theology101.church powered by NextJS + GitHub
+
+https://www.theology101.church - Theology video lessons powered by Next.js 15 + TypeScript
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Bootstrap 5 + SCSS
+- **Deployment:** Static export to GitHub Pages
 
 ## Installation
 
-All required commands are in `Makefile`.
+All commands are in the `Makefile`:
 
-- **`make` | `make help`** Shows list of available commands.
-- **`make install`** Installs required external packages.
-- **`make dev`** Runs the project in `dev` mode.
-- **`make build`** Runs build scripts and generates static pages.
+```bash
+make help      # Show available commands
+make install   # Install dependencies
+make dev       # Run development server
+make build     # Build for production (static export)
+make lint      # Run ESLint
+make typecheck # Run TypeScript type checking
+```
 
-## Development process
+## Project Structure
 
-- Run the `dev` server with `make dev`
-- When your job is done, check if the static page building is working or not
-  with `make build` and ensure that no errors are being produced.
+```
+├── app/                    # Next.js App Router pages
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Homepage
+│   ├── not-found.tsx       # 404 page
+│   └── (with-sidebar)/     # Route group with sidebar layout
+│       ├── layout.tsx      # Sidebar layout
+│       ├── videos/[slug]/  # Video pages
+│       ├── topics/[slug]/  # Topic pages
+│       └── tags/[slug]/    # Tag pages
+├── components/             # React components (TSX)
+├── constants/              # Configuration constants
+├── data/                   # Static JSON data
+├── lib/                    # Utilities and types
+├── styles/                 # SCSS modules
+└── types/                  # TypeScript declarations
+```
+
+## Development
+
+1. Run the dev server: `make dev`
+2. Open http://localhost:3000
+3. Before committing, verify the build: `make build`
+
+## Data
+
+Video data is stored in `data/theology101.json` with lookups by:
+- Video ID
+- Topic
+- Tag
+
+## License
+
+© Awe and Reverence
