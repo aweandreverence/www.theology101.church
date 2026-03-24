@@ -6,7 +6,7 @@ import { SITE_TITLE } from '@/lib/seo';
 
 export function Header() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg t101-navbar">
       <div className="container">
         <Link href="/" className="navbar-brand">
           {SITE_TITLE}

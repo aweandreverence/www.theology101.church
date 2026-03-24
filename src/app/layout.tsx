@@ -36,11 +36,14 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500&family=Shadows+Into+Light&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>
       <body>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_TRACKING_ID}`}
           strategy="afterInteractive"
@@ -55,7 +58,7 @@ export default function RootLayout({
         </Script>
         <div className="vh-100 d-flex flex-column">
           <Header />
-          <main className="flex-grow-1">{children}</main>
+          <main id="main-content" className="flex-grow-1">{children}</main>
           <Footer />
           <BootstrapClient />
         </div>
