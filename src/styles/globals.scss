@@ -1,0 +1,98 @@
+/* ── Design System Tokens ── */
+:root {
+  --t101-navy: #1e293b;
+  --t101-indigo: #4f46e5;
+  --t101-gold: #c8963e;
+  --t101-bg: #fafaf9;
+  --t101-surface: #ffffff;
+  --t101-text: #1c1917;
+  --t101-text-muted: #57534e;
+}
+
+/* ── Base ── */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--t101-bg);
+  color: var(--t101-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--t101-navy);
+}
+
+a {
+  color: var(--t101-indigo);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--t101-gold);
+  }
+}
+
+/* ── Skip-to-content (a11y) ── */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--t101-navy);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+
+  &:focus {
+    left: 0;
+  }
+}
+
+/* ── Navbar ── */
+.t101-navbar {
+  background: var(--t101-surface);
+  border-bottom: 1px solid #e7e5e4;
+  padding: 0.75rem 0;
+
+  .navbar-brand {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--t101-navy) !important;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-link {
+    color: var(--t101-text-muted) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.active {
+      color: var(--t101-gold) !important;
+    }
+  }
+}
+
+/* ── Footer ── */
+.t101-footer {
+  background: var(--t101-navy);
+  color: #d6d3d1;
+  padding: 2.5rem 0;
+
+  a {
+    color: #d6d3d1;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--t101-gold);
+    }
+  }
+
+  .t101-footer-copy {
+    font-size: 0.875rem;
+    opacity: 0.85;
+  }
+}

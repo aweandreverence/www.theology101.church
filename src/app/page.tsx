@@ -8,22 +8,24 @@ export default function HomePage() {
   return (
     <>
       <div className={styles.hero}>
-        <h1>Theology101.church</h1>
+        <h1>Theology 101</h1>
+        <p className={styles.heroSubtitle}>
+          Grounded teaching for growing believers — exploring the deep truths of
+          Scripture with clarity and reverence.
+        </p>
       </div>
       <div className={styles.welcome}>
-        <div>
-          {topics.map((topic, index) => (
-            <div key={index}>
-              <h3 className="mt-5">{topic.name}</h3>
-              <hr />
-              <div className={styles.videoList}>
-                {THEOLOGY101_DATA.lookups.topic[topic.name]?.map((videoId) => (
-                  <VideoCard key={videoId} videoId={videoId} isHomePage />
-                ))}
-              </div>
+        {topics.map((topic, index) => (
+          <section key={index} className={styles.topicSection}>
+            <h3 className={styles.topicHeading}>{topic.name}</h3>
+            <hr className={styles.topicDivider} />
+            <div className={styles.videoList}>
+              {THEOLOGY101_DATA.lookups.topic[topic.name]?.map((videoId) => (
+                <VideoCard key={videoId} videoId={videoId} isHomePage />
+              ))}
             </div>
-          ))}
-        </div>
+          </section>
+        ))}
       </div>
     </>
   );
