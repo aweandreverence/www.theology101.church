@@ -1,5 +1,7 @@
 # www.theology101.church
 
+[![Deploy GitHub Pages](https://github.com/aweandreverence/www.theology101.church/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/aweandreverence/www.theology101.church/actions/workflows/deploy-pages.yml)
+
 https://www.theology101.church - Theology video lessons powered by Next.js 15 + TypeScript
 
 ## Tech Stack
@@ -7,7 +9,7 @@ https://www.theology101.church - Theology video lessons powered by Next.js 15 + 
 - **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
 - **Styling:** Bootstrap 5 + SCSS
-- **Deployment:** Static export to GitHub Pages
+- **Deployment:** Committed `docs/` static export deployed to GitHub Pages via GitHub Actions
 
 ## Installation
 
@@ -21,6 +23,12 @@ make build     # Build for production (static export)
 make lint      # Run ESLint
 make typecheck # Run TypeScript type checking
 ```
+
+## Deployment
+
+Production is served from the committed `docs/` static export. The `Deploy GitHub Pages` workflow uploads `docs/` as the Pages artifact on pushes to `master` and can also be run manually from GitHub Actions.
+
+After this workflow merges, switch the repository's Settings → Pages source to **GitHub Actions** and verify the first workflow run publishes https://www.theology101.church successfully.
 
 ## Project Structure
 
